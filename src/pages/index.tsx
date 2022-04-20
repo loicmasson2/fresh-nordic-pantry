@@ -12,10 +12,6 @@ const IndexPage = () => {
         <PageLayout>
           <Heading>HELLO</Heading>
           <FormattedMessage id="title" defaultMessage="I am an example" />
-          <StaticImage
-            alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
-            src="../images/heather-barnes-U7NcygdW_dM-unsplash.jpg"
-          />
         </PageLayout>
       </main>
     </Wrapper>

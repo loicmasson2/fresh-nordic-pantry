@@ -4,8 +4,7 @@ import { IntlProvider } from "react-intl";
 import French from "../intl/fr.json";
 import English from "../intl/en.json";
 import Finnish from "../intl/fi.json";
-const local = navigator.language;
-export const Context = React.createContext(local);
+export const Context = React.createContext("en");
 
 const getinitialState = () => {
   let currentLang, currentLocale;
