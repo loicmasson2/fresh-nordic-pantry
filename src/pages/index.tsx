@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import { Heading, PageLayout } from "../components";
 import Wrapper from "../components/Wrapper";
+import { styled } from "../../stitches.config";
 // markup
 const IndexPage = () => {
   return (
@@ -17,5 +18,4 @@ const IndexPage = () => {
     </Wrapper>
   );
 };
-
 export default IndexPage;

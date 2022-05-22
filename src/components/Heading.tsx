@@ -30,10 +30,10 @@ export const Heading = React.forwardRef<
 
   // This is the mapping of Heading Variants to Text css
   const textCss: Record<HeadingSizeVariants, CSS> = {
-    1: { fontWeight: 500, lineHeight: "20px", "@bp2": { lineHeight: "23px" } },
-    2: { fontWeight: 500, lineHeight: "25px", "@bp2": { lineHeight: "30px" } },
-    3: { fontWeight: 500, lineHeight: "33px", "@bp2": { lineHeight: "41px" } },
-    4: { fontWeight: 500, lineHeight: "35px", "@bp2": { lineHeight: "55px" } },
+    1: { fontWeight: 500, lineHeight: "20px", "@bp2": { lineHeight: "25px" } },
+    2: { fontWeight: 500, lineHeight: "25px", "@bp2": { lineHeight: "40px" } },
+    3: { fontWeight: 500, lineHeight: "33px", "@bp2": { lineHeight: "45px" } },
+    4: { fontWeight: 500, lineHeight: "35px", "@bp2": { lineHeight: "107px" } },
   };
 
   return (
@@ -44,6 +44,7 @@ export const Heading = React.forwardRef<
       size={textSize[size]}
       css={{
         fontVariantNumeric: "proportional-nums",
+        fontFamily: "$lora",
         ...merge(textCss[size], props.css),
       }}
     />

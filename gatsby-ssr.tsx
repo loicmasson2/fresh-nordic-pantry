@@ -9,6 +9,6 @@ const HeadComponents = [
     }}
   />,
 ];
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setBodyAttributes }) => {
   setHeadComponents(HeadComponents);
 };

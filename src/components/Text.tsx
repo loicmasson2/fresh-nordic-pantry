@@ -7,6 +7,7 @@ export const Text = styled("span", {
   fontWeight: 400,
   fontVariantNumeric: "tabular-nums",
   display: "block",
+  fontFamily: "$lroa",
 
   variants: {
     size: {
