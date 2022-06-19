@@ -1,27 +1,25 @@
-import { blue, blueDark, slate, slateDark, sage, sageDark, plum, plumDark, gray, grayDark, green, greenDark, red, redDark, } from "@radix-ui/colors";
-import { createStitches } from "@stitches/react";
-export const { config, createTheme, getCssText, styled, globalCss } = createStitches({
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.darkTheme = exports.globalCss = exports.styled = exports.getCssText = exports.createTheme = exports.config = void 0;
+var colors_1 = require("@radix-ui/colors");
+var react_1 = require("@stitches/react");
+exports.config = (_a = (0, react_1.createStitches)({
     theme: {
-        colors: {
-            ...gray,
-            ...blue,
-            ...red,
-            ...green,
-            ...slate,
-            ...slateDark,
-            ...sage,
-            ...sageDark,
-            ...plum,
-            ...plumDark,
+        colors: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, colors_1.gray), colors_1.blue), colors_1.red), colors_1.green), colors_1.slate), colors_1.slateDark), colors_1.sage), colors_1.sageDark), colors_1.plum), colors_1.plumDark), { 
             // Semantic colors
-            hiContrast: "$sage12",
-            loContrast: "$sage1",
-            canvas: "hsl(0 0% 93%)",
-            panel: "white",
-            transparentPanel: "hsl(0 0% 0% / 97%)",
-            shadowLight: "hsl(206 22% 7% / 35%)",
-            shadowDark: "hsl(206 22% 7% / 20%)",
-        },
+            hiContrast: "$sage12", loContrast: "$sage1", canvas: "hsl(0 0% 93%)", panel: "white", transparentPanel: "hsl(0 0% 0% / 97%)", shadowLight: "hsl(206 22% 7% / 35%)", shadowDark: "hsl(206 22% 7% / 20%)" }),
         fonts: {
             lora: "Lora, sans-serif",
         },
@@ -72,138 +70,133 @@ export const { config, createTheme, getCssText, styled, globalCss } = createStit
         light: "(prefers-color-scheme: light)",
     },
     utils: {
-        p: (value) => ({
+        p: function (value) { return ({
             padding: value,
-        }),
-        pt: (value) => ({
+        }); },
+        pt: function (value) { return ({
             paddingTop: value,
-        }),
-        pr: (value) => ({
+        }); },
+        pr: function (value) { return ({
             paddingRight: value,
-        }),
-        pb: (value) => ({
+        }); },
+        pb: function (value) { return ({
             paddingBottom: value,
-        }),
-        pl: (value) => ({
+        }); },
+        pl: function (value) { return ({
             paddingLeft: value,
-        }),
-        px: (value) => ({
+        }); },
+        px: function (value) { return ({
             paddingLeft: value,
             paddingRight: value,
-        }),
-        py: (value) => ({
+        }); },
+        py: function (value) { return ({
             paddingTop: value,
             paddingBottom: value,
-        }),
-        m: (value) => ({
+        }); },
+        m: function (value) { return ({
             margin: value,
-        }),
-        mt: (value) => ({
+        }); },
+        mt: function (value) { return ({
             marginTop: value,
-        }),
-        mr: (value) => ({
+        }); },
+        mr: function (value) { return ({
             marginRight: value,
-        }),
-        mb: (value) => ({
+        }); },
+        mb: function (value) { return ({
             marginBottom: value,
-        }),
-        ml: (value) => ({
+        }); },
+        ml: function (value) { return ({
             marginLeft: value,
-        }),
-        mx: (value) => ({
+        }); },
+        mx: function (value) { return ({
             marginLeft: value,
             marginRight: value,
-        }),
-        my: (value) => ({
+        }); },
+        my: function (value) { return ({
             marginTop: value,
             marginBottom: value,
-        }),
-        ta: (value) => ({
+        }); },
+        ta: function (value) { return ({
             textAlign: value,
-        }),
-        fd: (value) => ({
+        }); },
+        fd: function (value) { return ({
             flexDirection: value,
-        }),
-        fw: (value) => ({ flexWrap: value }),
-        ai: (value) => ({
+        }); },
+        fw: function (value) { return ({ flexWrap: value }); },
+        ai: function (value) { return ({
             alignItems: value,
-        }),
-        ac: (value) => ({
+        }); },
+        ac: function (value) { return ({
             alignContent: value,
-        }),
-        jc: (value) => ({
+        }); },
+        jc: function (value) { return ({
             justifyContent: value,
-        }),
-        as: (value) => ({
+        }); },
+        as: function (value) { return ({
             alignSelf: value,
-        }),
-        fg: (value) => ({ flexGrow: value }),
-        fs: (value) => ({
+        }); },
+        fg: function (value) { return ({ flexGrow: value }); },
+        fs: function (value) { return ({
             flexShrink: value,
-        }),
-        fb: (value) => ({
+        }); },
+        fb: function (value) { return ({
             flexBasis: value,
-        }),
-        bc: (value) => ({
+        }); },
+        bc: function (value) { return ({
             backgroundColor: value,
-        }),
-        br: (value) => ({
+        }); },
+        br: function (value) { return ({
             borderRadius: value,
-        }),
-        btrr: (value) => ({
+        }); },
+        btrr: function (value) { return ({
             borderTopRightRadius: value,
-        }),
-        bbrr: (value) => ({
+        }); },
+        bbrr: function (value) { return ({
             borderBottomRightRadius: value,
-        }),
-        bblr: (value) => ({
+        }); },
+        bblr: function (value) { return ({
             borderBottomLeftRadius: value,
-        }),
-        btlr: (value) => ({
+        }); },
+        btlr: function (value) { return ({
             borderTopLeftRadius: value,
-        }),
-        bs: (value) => ({
+        }); },
+        bs: function (value) { return ({
             boxShadow: value,
-        }),
-        lh: (value) => ({
+        }); },
+        lh: function (value) { return ({
             lineHeight: value,
-        }),
-        ox: (value) => ({
+        }); },
+        ox: function (value) { return ({
             overflowX: value,
-        }),
-        oy: (value) => ({
+        }); },
+        oy: function (value) { return ({
             overflowY: value,
-        }),
-        pe: (value) => ({
+        }); },
+        pe: function (value) { return ({
             pointerEvents: value,
-        }),
-        us: (value) => ({
+        }); },
+        us: function (value) { return ({
             WebkitUserSelect: value,
             userSelect: value,
-        }),
-        userSelect: (value) => ({
+        }); },
+        userSelect: function (value) { return ({
             WebkitUserSelect: value,
             userSelect: value,
-        }),
-        size: (value) => ({
+        }); },
+        size: function (value) { return ({
             width: value,
             height: value,
-        }),
-        appearance: (value) => ({
+        }); },
+        appearance: function (value) { return ({
             WebkitAppearance: value,
             appearance: value,
-        }),
-        backgroundClip: (value) => ({
+        }); },
+        backgroundClip: function (value) { return ({
             WebkitBackgroundClip: value,
             backgroundClip: value,
-        }),
+        }); },
     },
-});
-export const darkTheme = createTheme({
-    colors: {
-        ...grayDark,
-        ...blueDark,
-        ...redDark,
-        ...greenDark,
-    },
+}), _a.config), exports.createTheme = _a.createTheme, exports.getCssText = _a.getCssText, exports.styled = _a.styled, exports.globalCss = _a.globalCss;
+exports.darkTheme = (0, exports.createTheme)({
+    colors: __assign(__assign(__assign(__assign({}, colors_1.grayDark), colors_1.blueDark), colors_1.redDark), colors_1.greenDark),
 });

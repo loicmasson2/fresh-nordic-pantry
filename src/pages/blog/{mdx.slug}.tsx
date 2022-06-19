@@ -13,26 +13,6 @@ const components = {
   Text,
   Heading,
   RecipeFacts,
-  // p: (props) => (
-  //   <Text
-  //     size="4"
-  //     as="p"
-  //     css={{
-  //       color: "$colors$green12",
-  //     }}
-  //     {...props}
-  //   />
-  // ),
-  // li: (props) => (
-  //   <Text
-  //     size="4"
-  //     as="li"
-  //     css={{
-  //       color: "$colors$green12",
-  //     }}
-  //     {...props}
-  //   />
-  // ),
   h2: (
     props: JSX.IntrinsicAttributes &
       Pick<
