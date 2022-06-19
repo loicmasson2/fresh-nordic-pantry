@@ -56,11 +56,12 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
             </Heading>
           </Flex>
         </header>
-        <select value={context.locale} onChange={context.selectLanguage}>
-          <option value="en">English</option>
-          <option value="fr">French</option>
-          <option value="fi">Finnish</option>
-        </select>
+        {/*  TODO ADD LATER LANGUAGE SELECTION AND PAGE GENERATION*/}
+        {/*<select value={context.locale} onChange={context.selectLanguage}>*/}
+        {/*  <option value="en">English</option>*/}
+        {/*  <option value="fr">French</option>*/}
+        {/*  <option value="fi">Finnish</option>*/}
+        {/*</select>*/}
         <main>{children}</main>
       </Container>
     </Section>

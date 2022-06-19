@@ -1,10 +1,8 @@
 import * as React from "react";
-import { IntlProvider, FormattedMessage, FormattedNumber } from "react-intl";
-import { StaticImage } from "gatsby-plugin-image";
 
 import { Heading, PageLayout } from "../components";
 import Wrapper from "../components/Wrapper";
-import { styled } from "../../stitches.config";
+import { Link } from "gatsby";
 // markup
 const IndexPage = () => {
   return (
@@ -12,7 +10,9 @@ const IndexPage = () => {
       <main>
         <PageLayout>
           <Heading>HELLO</Heading>
-          <FormattedMessage id="title" defaultMessage="I am an example" />
+          <Link to="/blog" replace>
+            Go to blog
+          </Link>
         </PageLayout>
       </main>
     </Wrapper>
