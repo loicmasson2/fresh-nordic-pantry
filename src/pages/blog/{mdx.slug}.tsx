@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -5,6 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { Heading, Text, Paragraph, Flex, PageLayout } from "../../components";
 import RecipeFacts from "../../components/RecipeFacts";
+import { TransformProps } from "@stitches/react/types/styled-component";
+import { CSS } from "../../../stitches.config";
 
 const components = {
   Text,
@@ -30,7 +33,71 @@ const components = {
   //     {...props}
   //   />
   // ),
-  h2: (props) => (
+  h2: (
+    props: JSX.IntrinsicAttributes &
+      Pick<
+        React.ClassAttributes<HTMLHeadingElement> &
+          React.HTMLAttributes<HTMLHeadingElement> & {
+            size?: ("1" | "2" | "3" | "4") | undefined;
+          } & Omit<
+            TransformProps<
+              {
+                size?:
+                  | number
+                  | "1"
+                  | "2"
+                  | "3"
+                  | "4"
+                  | "5"
+                  | "6"
+                  | "7"
+                  | "8"
+                  | "9"
+                  | undefined;
+                variant?:
+                  | "red"
+                  | "crimson"
+                  | "pink"
+                  | "purple"
+                  | "violet"
+                  | "indigo"
+                  | "blue"
+                  | "cyan"
+                  | "teal"
+                  | "green"
+                  | "lime"
+                  | "yellow"
+                  | "orange"
+                  | "gold"
+                  | "bronze"
+                  | "gray"
+                  | "contrast"
+                  | undefined;
+                gradient?: boolean | "true" | undefined;
+              },
+              {
+                bp1: "(min-width: 520px)";
+                bp2: "(min-width: 900px)";
+                bp3: "(min-width: 1200px)";
+                bp4: "(min-width: 1800px)";
+                motion: "(prefers-reduced-motion)";
+                hover: "(any-hover: hover)";
+                dark: "(prefers-color-scheme: dark)";
+                light: "(prefers-color-scheme: light)";
+              }
+            >,
+            "size"
+          > & { css?: CSS | undefined; as?: any },
+        | "key"
+        | keyof React.HTMLAttributes<HTMLHeadingElement>
+        | "size"
+        | "as"
+        | "variant"
+        | "gradient"
+        | "css"
+      > &
+      React.RefAttributes<HTMLHeadingElement>
+  ) => (
     <Heading
       size="3"
       as="h2"
