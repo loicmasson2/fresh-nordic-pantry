@@ -1,25 +1,27 @@
-"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var _a;
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.darkTheme = exports.globalCss = exports.styled = exports.getCssText = exports.createTheme = exports.config = void 0;
-var colors_1 = require("@radix-ui/colors");
-var react_1 = require("@stitches/react");
-exports.config = (_a = (0, react_1.createStitches)({
+import { blue, blueDark, slate, slateDark, sage, sageDark, plum, plumDark, gray, grayDark, green, greenDark, red, redDark, } from "@radix-ui/colors";
+import { createStitches } from "@stitches/react";
+export const { config, createTheme, getCssText, styled, globalCss } = createStitches({
     theme: {
-        colors: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, colors_1.gray), colors_1.blue), colors_1.red), colors_1.green), colors_1.slate), colors_1.slateDark), colors_1.sage), colors_1.sageDark), colors_1.plum), colors_1.plumDark), { 
+        colors: {
+            ...gray,
+            ...blue,
+            ...red,
+            ...green,
+            ...slate,
+            ...slateDark,
+            ...sage,
+            ...sageDark,
+            ...plum,
+            ...plumDark,
             // Semantic colors
-            hiContrast: "$sage12", loContrast: "$sage1", canvas: "hsl(0 0% 93%)", panel: "white", transparentPanel: "hsl(0 0% 0% / 97%)", shadowLight: "hsl(206 22% 7% / 35%)", shadowDark: "hsl(206 22% 7% / 20%)" }),
+            hiContrast: "$sage12",
+            loContrast: "$sage1",
+            canvas: "hsl(0 0% 93%)",
+            panel: "white",
+            transparentPanel: "hsl(0 0% 0% / 97%)",
+            shadowLight: "hsl(206 22% 7% / 35%)",
+            shadowDark: "hsl(206 22% 7% / 20%)",
+        },
         fonts: {
             lora: "Lora, sans-serif",
         },
@@ -70,133 +72,138 @@ exports.config = (_a = (0, react_1.createStitches)({
         light: "(prefers-color-scheme: light)",
     },
     utils: {
-        p: function (value) { return ({
+        p: (value) => ({
             padding: value,
-        }); },
-        pt: function (value) { return ({
+        }),
+        pt: (value) => ({
             paddingTop: value,
-        }); },
-        pr: function (value) { return ({
+        }),
+        pr: (value) => ({
             paddingRight: value,
-        }); },
-        pb: function (value) { return ({
+        }),
+        pb: (value) => ({
             paddingBottom: value,
-        }); },
-        pl: function (value) { return ({
+        }),
+        pl: (value) => ({
             paddingLeft: value,
-        }); },
-        px: function (value) { return ({
+        }),
+        px: (value) => ({
             paddingLeft: value,
             paddingRight: value,
-        }); },
-        py: function (value) { return ({
+        }),
+        py: (value) => ({
             paddingTop: value,
             paddingBottom: value,
-        }); },
-        m: function (value) { return ({
+        }),
+        m: (value) => ({
             margin: value,
-        }); },
-        mt: function (value) { return ({
+        }),
+        mt: (value) => ({
             marginTop: value,
-        }); },
-        mr: function (value) { return ({
+        }),
+        mr: (value) => ({
             marginRight: value,
-        }); },
-        mb: function (value) { return ({
+        }),
+        mb: (value) => ({
             marginBottom: value,
-        }); },
-        ml: function (value) { return ({
+        }),
+        ml: (value) => ({
             marginLeft: value,
-        }); },
-        mx: function (value) { return ({
+        }),
+        mx: (value) => ({
             marginLeft: value,
             marginRight: value,
-        }); },
-        my: function (value) { return ({
+        }),
+        my: (value) => ({
             marginTop: value,
             marginBottom: value,
-        }); },
-        ta: function (value) { return ({
+        }),
+        ta: (value) => ({
             textAlign: value,
-        }); },
-        fd: function (value) { return ({
+        }),
+        fd: (value) => ({
             flexDirection: value,
-        }); },
-        fw: function (value) { return ({ flexWrap: value }); },
-        ai: function (value) { return ({
+        }),
+        fw: (value) => ({ flexWrap: value }),
+        ai: (value) => ({
             alignItems: value,
-        }); },
-        ac: function (value) { return ({
+        }),
+        ac: (value) => ({
             alignContent: value,
-        }); },
-        jc: function (value) { return ({
+        }),
+        jc: (value) => ({
             justifyContent: value,
-        }); },
-        as: function (value) { return ({
+        }),
+        as: (value) => ({
             alignSelf: value,
-        }); },
-        fg: function (value) { return ({ flexGrow: value }); },
-        fs: function (value) { return ({
+        }),
+        fg: (value) => ({ flexGrow: value }),
+        fs: (value) => ({
             flexShrink: value,
-        }); },
-        fb: function (value) { return ({
+        }),
+        fb: (value) => ({
             flexBasis: value,
-        }); },
-        bc: function (value) { return ({
+        }),
+        bc: (value) => ({
             backgroundColor: value,
-        }); },
-        br: function (value) { return ({
+        }),
+        br: (value) => ({
             borderRadius: value,
-        }); },
-        btrr: function (value) { return ({
+        }),
+        btrr: (value) => ({
             borderTopRightRadius: value,
-        }); },
-        bbrr: function (value) { return ({
+        }),
+        bbrr: (value) => ({
             borderBottomRightRadius: value,
-        }); },
-        bblr: function (value) { return ({
+        }),
+        bblr: (value) => ({
             borderBottomLeftRadius: value,
-        }); },
-        btlr: function (value) { return ({
+        }),
+        btlr: (value) => ({
             borderTopLeftRadius: value,
-        }); },
-        bs: function (value) { return ({
+        }),
+        bs: (value) => ({
             boxShadow: value,
-        }); },
-        lh: function (value) { return ({
+        }),
+        lh: (value) => ({
             lineHeight: value,
-        }); },
-        ox: function (value) { return ({
+        }),
+        ox: (value) => ({
             overflowX: value,
-        }); },
-        oy: function (value) { return ({
+        }),
+        oy: (value) => ({
             overflowY: value,
-        }); },
-        pe: function (value) { return ({
+        }),
+        pe: (value) => ({
             pointerEvents: value,
-        }); },
-        us: function (value) { return ({
+        }),
+        us: (value) => ({
             WebkitUserSelect: value,
             userSelect: value,
-        }); },
-        userSelect: function (value) { return ({
+        }),
+        userSelect: (value) => ({
             WebkitUserSelect: value,
             userSelect: value,
-        }); },
-        size: function (value) { return ({
+        }),
+        size: (value) => ({
             width: value,
             height: value,
-        }); },
-        appearance: function (value) { return ({
+        }),
+        appearance: (value) => ({
             WebkitAppearance: value,
             appearance: value,
-        }); },
-        backgroundClip: function (value) { return ({
+        }),
+        backgroundClip: (value) => ({
             WebkitBackgroundClip: value,
             backgroundClip: value,
-        }); },
+        }),
     },
-}), _a.config), exports.createTheme = _a.createTheme, exports.getCssText = _a.getCssText, exports.styled = _a.styled, exports.globalCss = _a.globalCss;
-exports.darkTheme = (0, exports.createTheme)({
-    colors: __assign(__assign(__assign(__assign({}, colors_1.grayDark), colors_1.blueDark), colors_1.redDark), colors_1.greenDark),
+});
+export const darkTheme = createTheme({
+    colors: {
+        ...grayDark,
+        ...blueDark,
+        ...redDark,
+        ...greenDark,
+    },
 });

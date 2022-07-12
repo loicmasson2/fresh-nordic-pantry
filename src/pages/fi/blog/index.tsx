@@ -1,26 +1,17 @@
 import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
-import {
-  Button,
-  Box,
-  Card,
-  Flex,
-  Heading,
-  PageLayout,
-  Text,
-} from "../../components";
-import Wrapper from "../../components/Wrapper";
-import { styled } from "../../../stitches.config";
 import { FormattedMessage } from "react-intl";
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
+import { Button, Flex, Heading, PageLayout } from "../../../components";
+import Wrapper from "../../../components/Wrapper";
+import { styled } from "../../../../stitches.config";
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
         sort: { fields: frontmatter___date, order: DESC }
-        filter: { frontmatter: { lang: { eq: "en" } } }
+        filter: { frontmatter: { lang: { eq: "fi" } } }
       ) {
         distinct(field: frontmatter___tags)
         nodes {
@@ -59,6 +50,7 @@ const BlogPage = () => {
 
   const handleClick = (event: { target: { textContent: any } }) => {
     const filter = event.target.textContent;
+    console.log(event.target);
     if (filter !== "all") {
       let newItems = data.allMdx.nodes.filter(({ frontmatter }) => {
         return frontmatter.tags.includes(filter);
@@ -88,10 +80,10 @@ const BlogPage = () => {
             }}
           >
             <Button variant="main" id="all" size="3" onClick={handleClick}>
-              <FormattedMessage id="all" defaultMessage="all" />
+              <FormattedMessage id="all" defaultMessage="kaikki" />
             </Button>
             {data.allMdx.distinct.map((tag: string) => (
-              <Button variant="main" size="3" onClick={handleClick}>
+              <Button variant="main" id={tag} size="3" onClick={handleClick}>
                 {tag}
               </Button>
             ))}

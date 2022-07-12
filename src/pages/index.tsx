@@ -1,4 +1,5 @@
 import * as React from "react";
+import { FormattedMessage } from "react-intl";
 
 import { Heading, PageLayout } from "../components";
 import Wrapper from "../components/Wrapper";
@@ -10,8 +11,9 @@ const IndexPage = () => {
       <main>
         <PageLayout>
           <Heading>HELLO</Heading>
+          <FormattedMessage id="title" defaultMessage="I am an example" />
           <Link to="/blog" replace>
-            Go to blog
+            Go back
           </Link>
         </PageLayout>
       </main>

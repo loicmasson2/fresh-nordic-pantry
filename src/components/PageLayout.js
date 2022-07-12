@@ -35,5 +35,8 @@ export const PageLayout = ({ children }) => {
                     React.createElement(Heading, { size: "4", as: "h1", css: {
                             color: "$colors$green12",
                         } }, title))),
+            React.createElement("select", { value: context.locale, onChange: context.selectLanguage },
+                React.createElement("option", { value: "en" }, "English"),
+                React.createElement("option", { value: "fi" }, "Finnish")),
             React.createElement("main", null, children))));
 };
