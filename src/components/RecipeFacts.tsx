@@ -17,8 +17,15 @@ const RecipeFacts = ({
   level,
 }: RecipeFactsProps): JSX.Element => {
   return (
-    <RecipeFactsWrapper justify={"between"}>
-      <RecipeFactsBlock direction={"column"} align={"center"}>
+    <RecipeFactsWrapper
+      justify={"between"}
+      direction={{ "@initial": "row", "@bp2": "column" }}
+      wrap={{ "@initial": "wrap", "@bp2": "nowrap" }}
+    >
+      <RecipeFactsBlock
+        direction={{ "@initial": "row", "@bp2": "column" }}
+        align={"center"}
+      >
         <Text
           as={"p"}
           size="4"
@@ -40,7 +47,7 @@ const RecipeFacts = ({
         </Text>
       </RecipeFactsBlock>
       {/*<Spacer />*/}
-      <RecipeFactsBlock direction={"column"} align={"center"}>
+      <RecipeFactsBlock align={"center"}>
         <Text
           as={"p"}
           size="4"
@@ -62,7 +69,7 @@ const RecipeFacts = ({
         </Text>
       </RecipeFactsBlock>
       {/*<Spacer />*/}
-      <RecipeFactsBlock direction={"column"} align={"center"}>
+      <RecipeFactsBlock align={"center"}>
         <Text
           as={"p"}
           size="4"
@@ -85,7 +92,7 @@ const RecipeFacts = ({
         </Text>
       </RecipeFactsBlock>
       {/*<Spacer />*/}
-      <RecipeFactsBlock direction={"column"} align={"center"}>
+      <RecipeFactsBlock align={"center"}>
         <Text
           as={"p"}
           size="4"
@@ -111,13 +118,19 @@ const RecipeFacts = ({
 };
 
 const RecipeFactsWrapper = styled(Flex, {
-  borderTop: "1px solid $green6",
-  borderBottom: "1px solid $green6",
-  borderRadius: "100px",
+  "@bp1": {
+    borderTop: "1px solid $green6",
+    borderBottom: "1px solid $green6",
+    borderRadius: "100px",
+  },
   margin: "$5",
 });
 
 const RecipeFactsBlock = styled(Flex, {
+  flexDirection: "row",
+  "@bp1": {
+    flexDirection: "column",
+  },
   padding: "$2",
   flexGrow: "2",
   color: "$green11",

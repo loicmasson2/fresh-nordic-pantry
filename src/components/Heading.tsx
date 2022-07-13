@@ -33,7 +33,7 @@ export const Heading = React.forwardRef<
     1: { fontWeight: 500, lineHeight: "20px", "@bp2": { lineHeight: "25px" } },
     2: { fontWeight: 500, lineHeight: "25px", "@bp2": { lineHeight: "40px" } },
     3: { fontWeight: 500, lineHeight: "33px", "@bp2": { lineHeight: "45px" } },
-    4: { fontWeight: 500, lineHeight: "35px", "@bp2": { lineHeight: "107px" } },
+    4: { fontWeight: 500, lineHeight: "45px", "@bp2": { lineHeight: "107px" } },
   };
 
   return (

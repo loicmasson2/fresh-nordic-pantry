@@ -126,7 +126,9 @@ const BlogPost = ({ data }) => {
       <Flex
         direction={"column"}
         css={{
-          margin: "$4",
+          width: "70%",
+          margin: "$3",
+          "@bp2": { margin: "$4" },
         }}
       >
         <Link to="/blog" replace>
@@ -146,6 +148,8 @@ const BlogPost = ({ data }) => {
           size="4"
           css={{
             color: "$green11",
+            my: "$4",
+            "@bp2": { my: "0" },
           }}
         >
           Published on {data.mdx.frontmatter.date}

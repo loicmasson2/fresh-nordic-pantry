@@ -6,7 +6,10 @@ import English from "../intl/en.json";
 import Finnish from "../intl/fi.json";
 import { styled } from "../../stitches.config";
 import { useLocation } from "@reach/router";
-export const Context = React.createContext("en");
+export const Context = React.createContext({
+    locale: "en",
+    selectLanguage: (e) => { },
+});
 const Wrapper = (props) => {
     const location = useLocation();
     let currentLang, currentLocale;

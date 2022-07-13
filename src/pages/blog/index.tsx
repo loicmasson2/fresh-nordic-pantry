@@ -81,10 +81,12 @@ const BlogPage = () => {
           <Flex
             css={{
               gap: "$2",
-              alignItems: "center",
               justifyContent: "center",
               mt: "$4",
               textTransform: "capitalize",
+              flexDirection: "column",
+              alignItems: "start",
+              "@bp2": { flexDirection: "row", alignItems: "center" },
             }}
           >
             <Button variant="main" id="all" size="3" onClick={handleClick}>

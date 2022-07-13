@@ -43,7 +43,9 @@ const BlogPost = ({ data }) => {
                 maxWidth: "360px",
             } }),
         React.createElement(Flex, { direction: "column", css: {
-                margin: "$4",
+                width: "70%",
+                margin: "$3",
+                "@bp2": { margin: "$4" },
             } },
             React.createElement(Link, { to: "/blog", replace: true }, "\u2190 Go back"),
             React.createElement(Heading, { size: "4", as: "h2", css: {
@@ -51,6 +53,8 @@ const BlogPost = ({ data }) => {
                 } }, title),
             React.createElement(Text, { as: "p", size: "4", css: {
                     color: "$green11",
+                    my: "$4",
+                    "@bp2": { my: "0" },
                 } },
                 "Published on ",
                 data.mdx.frontmatter.date),

@@ -8,7 +8,10 @@ import { styled } from "../../stitches.config";
 
 import { useLocation } from "@reach/router";
 
-export const Context = React.createContext("en");
+export const Context = React.createContext({
+  locale: "en",
+  selectLanguage: (e: { target: { value: any } }) => {},
+});
 
 const Wrapper = (props: {
   children:
