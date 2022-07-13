@@ -5,10 +5,12 @@ import { IntlProvider } from "react-intl";
 import English from "../intl/en.json";
 import Finnish from "../intl/fi.json";
 import { styled } from "../../stitches.config";
+import { useLocation } from "@reach/router";
 export const Context = React.createContext("en");
-const getinitialState = () => {
+const Wrapper = (props) => {
+    const location = useLocation();
     let currentLang, currentLocale;
-    if (document.documentElement.lang === "fi") {
+    if (location.pathname.indexOf("/fi/") > -1) {
         currentLang = "fi";
         currentLocale = Finnish;
     }
@@ -16,10 +18,6 @@ const getinitialState = () => {
         currentLang = "en";
         currentLocale = English;
     }
-    return { currentLocale, currentLang };
-};
-const Wrapper = (props) => {
-    const { currentLocale, currentLang } = getinitialState();
     const [locale, setLocale] = useState(currentLang);
     const [messages, setMessages] = useState(currentLocale);
     function selectLanguage(e) {

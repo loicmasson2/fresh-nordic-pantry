@@ -6,21 +6,9 @@ import English from "../intl/en.json";
 import Finnish from "../intl/fi.json";
 import { styled } from "../../stitches.config";
 
+import { useLocation } from "@reach/router";
+
 export const Context = React.createContext("en");
-
-const getinitialState = () => {
-  let currentLang, currentLocale;
-
-  if (document.documentElement.lang === "fi") {
-    currentLang = "fi";
-    currentLocale = Finnish;
-  } else {
-    currentLang = "en";
-    currentLocale = English;
-  }
-
-  return { currentLocale, currentLang };
-};
 
 const Wrapper = (props: {
   children:
@@ -31,7 +19,15 @@ const Wrapper = (props: {
     | null
     | undefined;
 }) => {
-  const { currentLocale, currentLang } = getinitialState();
+  const location = useLocation();
+  let currentLang, currentLocale;
+  if (location.pathname.indexOf("/fi/") > -1) {
+    currentLang = "fi";
+    currentLocale = Finnish;
+  } else {
+    currentLang = "en";
+    currentLocale = English;
+  }
   const [locale, setLocale] = useState(currentLang);
   const [messages, setMessages] = useState(currentLocale);
 
