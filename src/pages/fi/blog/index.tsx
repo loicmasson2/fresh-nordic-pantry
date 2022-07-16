@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { FormattedMessage } from "react-intl";
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
-import { Button, Flex, Heading, PageLayout } from "../../../components";
-import Wrapper from "../../../components/Wrapper";
-import { styled } from "../../../../stitches.config";
+import { graphql, useStaticQuery } from "gatsby";
+import { BlogPage, Frontmatter } from "../../../components";
 
-const BlogPage = () => {
+/**
+ * Main page of the blog in Finnish
+ * Contains a menu that you can swipe on mobile
+ */
+const FinnishBlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
@@ -37,160 +37,36 @@ const BlogPage = () => {
     }
   `);
 
-  const [items, setItems] = React.useState(data.allMdx.nodes);
+  const [recipes, setRecipes] = React.useState(data.allMdx.nodes);
+  const [currentCategory, setCurrentCategory] = React.useState("");
 
-  const getFlexVariant = (index: number) => {
-    if (index % 4 === 0 || index % 4 === 3) {
-      return 2;
-    }
-    if (index % 4 === 1 || index % 4 === 2) {
-      return 1;
-    }
-  };
-
-  const handleClick = (event: { target: { textContent: any } }) => {
-    const filter = event.target.textContent;
-    console.log(event.target);
-    if (filter !== "all") {
-      let newItems = data.allMdx.nodes.filter(({ frontmatter }) => {
-        return frontmatter.tags.includes(filter);
-      });
-      setItems(newItems);
+  /**
+   * Will filter in graphQL per tag
+   *
+   */
+  const handleCategoryChange = (category: string) => {
+    if (category !== "all") {
+      let newItems = data.allMdx.nodes.filter(
+        ({ frontmatter }: Frontmatter) => {
+          return frontmatter.tags.includes(category);
+        }
+      );
+      setRecipes(newItems);
+      setCurrentCategory(category);
     } else {
-      setItems(data.allMdx.nodes);
+      setRecipes(data.allMdx.nodes);
+      setCurrentCategory("");
     }
   };
 
   return (
-    <Wrapper>
-      <MainWithBackground
-        css={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <PageLayout>
-          <Flex
-            css={{
-              gap: "$2",
-              alignItems: "center",
-              justifyContent: "center",
-              mt: "$4",
-              textTransform: "capitalize",
-            }}
-          >
-            <Button variant="main" id="all" size="3" onClick={handleClick}>
-              <FormattedMessage id="all" defaultMessage="kaikki" />
-            </Button>
-            {data.allMdx.distinct.map((tag: string) => (
-              <Button variant="main" id={tag} size="3" onClick={handleClick}>
-                {tag}
-              </Button>
-            ))}
-          </Flex>
-          <Flex
-            wrap={"wrap"}
-            gap="4"
-            css={{
-              mt: "$4",
-              mb: "$7",
-            }}
-          >
-            {items.map(
-              (
-                {
-                  id,
-                  slug,
-                  frontmatter: { date, title, image },
-                }: {
-                  id: string;
-                  slug: string;
-                  frontmatter: {
-                    date: string;
-                    title: string;
-                    image: ImageDataLike;
-                  };
-                },
-                index: number
-              ) => (
-                <Article key={id} flex={getFlexVariant(index)}>
-                  <Link to={`${slug}`} replace>
-                    <Flex
-                      direction={"column"}
-                      css={{
-                        height: "100%",
-                      }}
-                    >
-                      <GatsbyImage
-                        imgStyle={{
-                          transition: ".3s ease-in-out",
-                        }}
-                        style={{
-                          flex: "80%",
-                        }}
-                        image={getImage(image)}
-                      />
-                      <Flex
-                        css={{
-                          flex: "20%",
-                          textAlign: "center",
-                          backgroundColor: "$green7",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Heading
-                          size="1"
-                          as="h1"
-                          css={{
-                            color: "$green12",
-                          }}
-                        >
-                          {title}
-                        </Heading>
-                      </Flex>
-                    </Flex>
-                  </Link>
-                </Article>
-              )
-            )}
-          </Flex>
-        </PageLayout>
-      </MainWithBackground>
-    </Wrapper>
+    <BlogPage
+      menuItems={data.allMdx.distinct}
+      recipes={recipes}
+      currentCategory={currentCategory}
+      changeCategoryClick={handleCategoryChange}
+    />
   );
 };
 
-export const MainWithBackground = styled("main", {
-  backgroundColor: "$green2",
-  width: "100%",
-  height: "100%",
-  margin: 0,
-  padding: 0,
-  overflowX: "hidden",
-});
-
-export const Article = styled("article", {
-  width: "100%",
-  minHeight: "100%",
-  "img:hover": {
-    transform: "scale(1.3)",
-    borderRadius: "8px",
-  },
-  variants: {
-    flex: {
-      "1": {
-        flex: "30%",
-      },
-      "2": {
-        flex: "60%",
-        flexDirection: "column",
-      },
-    },
-  },
-  defaultVariants: {
-    flex: "2",
-  },
-});
-
-export default BlogPage;
+export default FinnishBlogPage;

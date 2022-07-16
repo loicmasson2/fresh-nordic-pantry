@@ -12,7 +12,7 @@ import {
   Flex,
   PageLayout,
 } from "../../../components";
-import RecipeFacts from "../../../components/RecipeFacts";
+import RecipeFacts from "../../../components/Recipes/RecipeFacts";
 import { CSS } from "../../../../stitches.config";
 
 const components = {

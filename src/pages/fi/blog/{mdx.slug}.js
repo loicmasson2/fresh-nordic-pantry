@@ -5,7 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link } from "gatsby";
 import { Heading, Text, Flex, } from "../../../components";
-import RecipeFacts from "../../../components/RecipeFacts";
+import RecipeFacts from "../../../components/Recipes/RecipeFacts";
 const components = {
     Text,
     Heading,

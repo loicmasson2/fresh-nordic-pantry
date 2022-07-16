@@ -1,7 +1,7 @@
 import React from "react";
-import { Text } from "./Text";
-import { Flex } from "./Flex";
-import { styled } from "../../stitches.config";
+import { Text } from "../Primitives/Text";
+import { Flex } from "../Primitives/Flex";
+import { styled } from "../../../stitches.config";
 const RecipeFacts = ({ prepTime, cookTime, servings, level, }) => {
     return (React.createElement(RecipeFactsWrapper, { justify: "between", direction: { "@initial": "row", "@bp2": "column" }, wrap: { "@initial": "wrap", "@bp2": "nowrap" } },
         React.createElement(RecipeFactsBlock, { direction: { "@initial": "row", "@bp2": "column" }, align: "center" },

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var config = {
     siteMetadata: {
-        title: "Fresh Nordic Pantry",
-        siteUrl: "https://www.yourdomain.tld",
+        title: "Nordic Pantry",
+        siteUrl: "https://www.nordicpantry.one",
     },
     plugins: [
         "gatsby-plugin-image",

@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { navigate } from "gatsby";
 import { Helmet } from "react-helmet";
 import { IntlProvider } from "react-intl";
-import English from "../intl/en.json";
-import Finnish from "../intl/fi.json";
-import { styled } from "../../stitches.config";
+import English from "../../intl/en.json";
+import Finnish from "../../intl/fi.json";
+import { styled } from "../../../stitches.config";
 
 import { useLocation } from "@reach/router";
 
 export const Context = React.createContext({
   locale: "en",
-  selectLanguage: (e: { target: { value: any } }) => {},
+  selectLanguage: (language: string) => {},
 });
 
+/**
+ * Wrapper for head component and
+ * contain the translation brain
+ *
+ */
 const Wrapper = (props: {
   children:
     | boolean
@@ -34,8 +39,8 @@ const Wrapper = (props: {
   const [locale, setLocale] = useState(currentLang);
   const [messages, setMessages] = useState(currentLocale);
 
-  function selectLanguage(e: { target: { value: any } }) {
-    const newLocale = e.target.value;
+  const selectLanguage = (language: string) => {
+    const newLocale = language;
     setLocale(newLocale);
     if (newLocale === "en") {
       setMessages(English);
@@ -44,7 +49,7 @@ const Wrapper = (props: {
       setMessages(Finnish);
       navigate(`/${newLocale}/blog`, { replace: true });
     }
-  }
+  };
 
   return (
     <Context.Provider value={{ locale, selectLanguage }}>

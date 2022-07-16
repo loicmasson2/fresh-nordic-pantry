@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Flex, Heading, Link, Section } from "./index";
-import useSiteMetadata from "../hooks/use-sitemetadata";
+import { Container, Flex, Heading, Link, Section } from "../index";
+import useSiteMetadata from "../../hooks/use-sitemetadata";
 import { Context } from "./Wrapper";
-import { styled, globalCss } from "../../stitches.config";
+import { globalCss, styled } from "../../../stitches.config";
 
 const globalStyles = globalCss({
   "html, body, #___gatsby, #gatsby-focus-wrapper": {
@@ -19,10 +19,12 @@ type Props = {
   children: React.ReactNode;
 };
 
+/**
+ * Page Layout is the wrapper to have language selector and title on every blog page
+ */
 export const PageLayout = ({ children }: Props): JSX.Element => {
   globalStyles();
   const { title = "" } = useSiteMetadata();
-  const context = React.useContext(Context);
 
   return (
     <Section
@@ -36,7 +38,9 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
         overflowX: "hidden",
       }}
     >
-      <Container size="3">
+      <LanguageSelector />
+
+      <Container size={{ "@initial": "1", "@bp1": "2", "@bp2": "3" }}>
         <header>
           <Flex
             css={{
@@ -56,12 +60,35 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
             </Heading>
           </Flex>
         </header>
-        <select value={context.locale} onChange={context.selectLanguage}>
-          <option value="en">English</option>
-          <option value="fi">Finnish</option>
-        </select>
         <main>{children}</main>
+        <LanguageSelector />
       </Container>
     </Section>
   );
 };
+
+/**
+ * Component that will list two flags to change language
+ */
+const LanguageSelector = () => {
+  const context = React.useContext(Context);
+
+  return (
+    <LanguageSelectorWrapper
+      css={{
+        fontSize: "$7",
+        gap: "$2",
+        justifyContent: "flex-end",
+      }}
+    >
+      <Flex onClick={() => context.selectLanguage("fi")}>🇫🇮</Flex>
+      <Flex onClick={() => context.selectLanguage("en")}>🇬🇧</Flex>
+    </LanguageSelectorWrapper>
+  );
+};
+
+export const LanguageSelectorWrapper = styled(Flex, {
+  fontSize: "$8",
+  gap: "$2",
+  justifyContent: "flex-end",
+});

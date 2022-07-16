@@ -3,9 +3,9 @@ import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql, Link, useStaticQuery } from "gatsby";
-import { Heading, Text, Paragraph, Flex, PageLayout } from "../../components";
-import RecipeFacts from "../../components/RecipeFacts";
+import { graphql, Link } from "gatsby";
+import { Heading, Text, Flex } from "../../components";
+import RecipeFacts from "../../components/Recipes/RecipeFacts";
 import { TransformProps } from "@stitches/react/types/styled-component";
 import { CSS } from "../../../stitches.config";
 
@@ -90,30 +90,9 @@ const components = {
 };
 
 const BlogPost = ({ data }) => {
-  // const data = useStaticQuery(graphql`
-  //   query ($id: String) {
-  //     mdx(id: { eq: $id }) {
-  //       frontmatter {
-  //         title
-  //         date(formatString: "MMMM D, YYYY")
-  //         image {
-  //           childImageSharp {
-  //             gatsbyImageData(
-  //               placeholder: TRACED_SVG
-  //               formats: [AUTO, WEBP, AVIF]
-  //               transformOptions: { cropFocus: ENTROPY, fit: INSIDE }
-  //             )
-  //           }
-  //         }
-  //       }
-  //       body
-  //     }
-  //   }
-  // `);
-
   const image = getImage(data.mdx.frontmatter.image);
   const title = data.mdx.frontmatter.title;
-  console.log(data);
+
   return (
     <Flex>
       <GatsbyImage

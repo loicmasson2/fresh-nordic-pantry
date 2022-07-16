@@ -2,8 +2,8 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Fresh Nordic Pantry`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Nordic Pantry`,
+    siteUrl: `https://www.nordicpantry.one`,
   },
   plugins: [
     "gatsby-plugin-image",
