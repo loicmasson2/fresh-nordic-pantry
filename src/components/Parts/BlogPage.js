@@ -15,7 +15,7 @@ const getFlexVariant = (index) => {
         return 1;
     }
 };
-export const BlogPage = ({ menuItems, recipes, currentCategory, changeCategoryClick }) => {
+export const BlogPage = ({ menuItems, recipes, currentCategory, changeCategoryClick, }) => {
     return (React.createElement(Wrapper, null,
         React.createElement(MainWithBackground, null,
             React.createElement(PageLayout, null,
