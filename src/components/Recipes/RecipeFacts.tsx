@@ -1,6 +1,5 @@
 import React from "react";
 import { Text } from "../Primitives/Text";
-import { Flex } from "../Primitives/Flex";
 import { styled } from "../../../stitches.config";
 
 type RecipeFactsProps = {
@@ -17,119 +16,78 @@ const RecipeFacts = ({
   level,
 }: RecipeFactsProps): JSX.Element => {
   return (
-    <RecipeFactsWrapper
-      justify={"between"}
-      direction={{ "@initial": "row", "@bp2": "column" }}
-      wrap={{ "@initial": "wrap", "@bp2": "nowrap" }}
-    >
-      <RecipeFactsBlock
-        direction={{ "@initial": "row", "@bp2": "column" }}
-        align={"center"}
-      >
-        <Text
-          as={"p"}
-          size="4"
-          css={{
-            color: "$green11",
-            pb: "$2",
-          }}
-        >
-          Prep
-        </Text>
-        <Text
-          as={"p"}
-          size="5"
-          css={{
-            color: "$green11",
-          }}
-        >
-          {prepTime} min
-        </Text>
+    <RecipeFactsWrapper>
+      <RecipeFactsBlock>
+        <LabelFact>Prep</LabelFact>
+        <Fact>{prepTime} min</Fact>
       </RecipeFactsBlock>
-      {/*<Spacer />*/}
-      <RecipeFactsBlock align={"center"}>
-        <Text
-          as={"p"}
-          size="4"
-          css={{
-            color: "$green11",
-            pb: "$2",
-          }}
-        >
-          Cook
-        </Text>
-        <Text
-          as={"p"}
-          size="5"
-          css={{
-            color: "$green11",
-          }}
-        >
-          {cookTime} min
-        </Text>
+      <RecipeFactsBlock>
+        <LabelFact>Cook</LabelFact>
+        <Fact>{cookTime} min</Fact>
       </RecipeFactsBlock>
-      {/*<Spacer />*/}
-      <RecipeFactsBlock align={"center"}>
-        <Text
-          as={"p"}
-          size="4"
-          css={{
-            color: "$green11",
-            pb: "$2",
-          }}
-        >
-          Servings
-        </Text>
-        <Text
-          as={"p"}
-          size="5"
-          css={{
-            color: "$green11",
-            pb: "$2",
-          }}
-        >
-          {servings}
-        </Text>
+      <RecipeFactsBlock>
+        <LabelFact>Servings</LabelFact>
+        <Fact>{servings}</Fact>
       </RecipeFactsBlock>
-      {/*<Spacer />*/}
-      <RecipeFactsBlock align={"center"}>
-        <Text
-          as={"p"}
-          size="4"
-          css={{
-            color: "$green11",
-            pb: "$2",
-          }}
-        >
-          Level
-        </Text>
-        <Text
-          as={"p"}
-          size="5"
-          css={{
-            color: "$green11",
-          }}
-        >
-          {level}
-        </Text>
+      <RecipeFactsBlock>
+        <LabelFact>Level</LabelFact>
+        <Fact>{level}</Fact>
       </RecipeFactsBlock>
     </RecipeFactsWrapper>
   );
 };
 
-const RecipeFactsWrapper = styled(Flex, {
+// TODO
+// need to translate it
+const LabelFact: React.FC = ({ children }) => (
+  <Text
+    as={"p"}
+    size="5"
+    css={{
+      color: "$green11",
+      pb: "$2",
+      pr: "$4",
+      "@bp1": { pr: "0" },
+    }}
+  >
+    {children}
+  </Text>
+);
+
+const Fact: React.FC = ({ children }) => (
+  <Text
+    as={"p"}
+    size="4"
+    css={{
+      color: "$green11",
+      fontWeight: "bold",
+      "@bp1": { fontWeight: "normal" },
+    }}
+  >
+    {children}
+  </Text>
+);
+
+const RecipeFactsWrapper = styled("div", {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  margin: "$3",
   "@bp1": {
     borderTop: "1px solid $green6",
     borderBottom: "1px solid $green6",
     borderRadius: "100px",
+    flexDirection: "row",
   },
-  margin: "$5",
 });
 
-const RecipeFactsBlock = styled(Flex, {
+const RecipeFactsBlock = styled("div", {
+  display: "flex",
   flexDirection: "row",
+  justifyContent: "space-between",
   "@bp1": {
     flexDirection: "column",
+    alignItems: "center",
   },
   padding: "$2",
   flexGrow: "2",

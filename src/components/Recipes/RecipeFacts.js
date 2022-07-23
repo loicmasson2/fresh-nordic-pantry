@@ -1,59 +1,57 @@
 import React from "react";
 import { Text } from "../Primitives/Text";
-import { Flex } from "../Primitives/Flex";
 import { styled } from "../../../stitches.config";
 const RecipeFacts = ({ prepTime, cookTime, servings, level, }) => {
-    return (React.createElement(RecipeFactsWrapper, { justify: "between", direction: { "@initial": "row", "@bp2": "column" }, wrap: { "@initial": "wrap", "@bp2": "nowrap" } },
-        React.createElement(RecipeFactsBlock, { direction: { "@initial": "row", "@bp2": "column" }, align: "center" },
-            React.createElement(Text, { as: "p", size: "4", css: {
-                    color: "$green11",
-                    pb: "$2",
-                } }, "Prep"),
-            React.createElement(Text, { as: "p", size: "5", css: {
-                    color: "$green11",
-                } },
+    return (React.createElement(RecipeFactsWrapper, null,
+        React.createElement(RecipeFactsBlock, null,
+            React.createElement(LabelFact, null, "Prep"),
+            React.createElement(Fact, null,
                 prepTime,
                 " min")),
-        React.createElement(RecipeFactsBlock, { align: "center" },
-            React.createElement(Text, { as: "p", size: "4", css: {
-                    color: "$green11",
-                    pb: "$2",
-                } }, "Cook"),
-            React.createElement(Text, { as: "p", size: "5", css: {
-                    color: "$green11",
-                } },
+        React.createElement(RecipeFactsBlock, null,
+            React.createElement(LabelFact, null, "Cook"),
+            React.createElement(Fact, null,
                 cookTime,
                 " min")),
-        React.createElement(RecipeFactsBlock, { align: "center" },
-            React.createElement(Text, { as: "p", size: "4", css: {
-                    color: "$green11",
-                    pb: "$2",
-                } }, "Servings"),
-            React.createElement(Text, { as: "p", size: "5", css: {
-                    color: "$green11",
-                    pb: "$2",
-                } }, servings)),
-        React.createElement(RecipeFactsBlock, { align: "center" },
-            React.createElement(Text, { as: "p", size: "4", css: {
-                    color: "$green11",
-                    pb: "$2",
-                } }, "Level"),
-            React.createElement(Text, { as: "p", size: "5", css: {
-                    color: "$green11",
-                } }, level))));
+        React.createElement(RecipeFactsBlock, null,
+            React.createElement(LabelFact, null, "Servings"),
+            React.createElement(Fact, null, servings)),
+        React.createElement(RecipeFactsBlock, null,
+            React.createElement(LabelFact, null, "Level"),
+            React.createElement(Fact, null, level))));
 };
-const RecipeFactsWrapper = styled(Flex, {
+// TODO
+// need to translate it
+const LabelFact = ({ children }) => (React.createElement(Text, { as: "p", size: "5", css: {
+        color: "$green11",
+        pb: "$2",
+        pr: "$4",
+        "@bp1": { pr: "0" },
+    } }, children));
+const Fact = ({ children }) => (React.createElement(Text, { as: "p", size: "4", css: {
+        color: "$green11",
+        fontWeight: "bold",
+        "@bp1": { fontWeight: "normal" },
+    } }, children));
+const RecipeFactsWrapper = styled("div", {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    margin: "$3",
     "@bp1": {
         borderTop: "1px solid $green6",
         borderBottom: "1px solid $green6",
         borderRadius: "100px",
+        flexDirection: "row",
     },
-    margin: "$5",
 });
-const RecipeFactsBlock = styled(Flex, {
+const RecipeFactsBlock = styled("div", {
+    display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     "@bp1": {
         flexDirection: "column",
+        alignItems: "center",
     },
     padding: "$2",
     flexGrow: "2",

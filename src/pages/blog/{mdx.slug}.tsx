@@ -7,77 +7,49 @@ import { graphql, Link } from "gatsby";
 import { Heading, Text, Flex } from "../../components";
 import RecipeFacts from "../../components/Recipes/RecipeFacts";
 import { TransformProps } from "@stitches/react/types/styled-component";
-import { CSS } from "../../../stitches.config";
+import { CSS, styled } from "../../../stitches.config";
+import { keyframes } from "@stitches/react";
 
 const components = {
   Text,
   Heading,
   RecipeFacts,
-  h2: (
-    props: JSX.IntrinsicAttributes &
-      Pick<
-        React.ClassAttributes<HTMLHeadingElement> &
-          React.HTMLAttributes<HTMLHeadingElement> & {
-            size?: ("1" | "2" | "3" | "4") | undefined;
-          } & Omit<
-            TransformProps<
-              {
-                size?:
-                  | number
-                  | "1"
-                  | "2"
-                  | "3"
-                  | "4"
-                  | "5"
-                  | "6"
-                  | "7"
-                  | "8"
-                  | "9"
-                  | undefined;
-                variant?:
-                  | "red"
-                  | "crimson"
-                  | "pink"
-                  | "purple"
-                  | "violet"
-                  | "indigo"
-                  | "blue"
-                  | "cyan"
-                  | "teal"
-                  | "green"
-                  | "lime"
-                  | "yellow"
-                  | "orange"
-                  | "gold"
-                  | "bronze"
-                  | "gray"
-                  | "contrast"
-                  | undefined;
-                gradient?: boolean | "true" | undefined;
-              },
-              {
-                bp1: "(min-width: 520px)";
-                bp2: "(min-width: 900px)";
-                bp3: "(min-width: 1200px)";
-                bp4: "(min-width: 1800px)";
-                motion: "(prefers-reduced-motion)";
-                hover: "(any-hover: hover)";
-                dark: "(prefers-color-scheme: dark)";
-                light: "(prefers-color-scheme: light)";
-              }
-            >,
-            "size"
-          > & { css?: CSS | undefined; as?: any },
-        | "key"
-        | keyof React.HTMLAttributes<HTMLHeadingElement>
-        | "size"
-        | "as"
-        | "variant"
-        | "gradient"
-        | "css"
-      > &
-      React.RefAttributes<HTMLHeadingElement>
-  ) => (
+  p: (props) => (
+    <Text
+      size={{
+        "@initial": "4",
+        "@bp2": "5",
+      }}
+      as="p"
+      css={{
+        color: "$colors$green12",
+        lineHeight: "24px",
+        "@bp2": {
+          lineHeight: "32px",
+        },
+      }}
+      {...props}
+    />
+  ),
+  li: (props) => (
+    <Text
+      size={{
+        "@initial": "4",
+        "@bp2": "5",
+      }}
+      as="li"
+      css={{
+        color: "$colors$green12",
+        display: "list-item",
+        lineHeight: "24px",
+        "@bp2": {
+          lineHeight: "32px",
+        },
+      }}
+      {...props}
+    />
+  ),
+  h2: (props) => (
     <Heading
       size="3"
       as="h2"
@@ -95,13 +67,16 @@ const BlogPost = ({ data }) => {
 
   return (
     <Flex>
-      <GatsbyImage
-        alt={title}
-        image={image}
-        style={{
-          maxWidth: "360px",
-        }}
-      />
+      {/*<PostImage*/}
+      {/*  alt={title}*/}
+      {/*  image={image}*/}
+      {/*  style={{*/}
+      {/*    maxWidth: "60px",*/}
+      {/*    height: "100vh",*/}
+      {/*    "@bp1": { minWidth: "600px" },*/}
+      {/*  }}*/}
+      {/*/>*/}
+      <PostOneColorStripSide />
       <Flex
         direction={"column"}
         css={{
@@ -113,26 +88,8 @@ const BlogPost = ({ data }) => {
         <Link to="/blog" replace>
           &#8592; Go back
         </Link>
-        <Heading
-          size="4"
-          as="h2"
-          css={{
-            color: "$colors$green12",
-          }}
-        >
-          {title}
-        </Heading>
-        <Text
-          as={"p"}
-          size="4"
-          css={{
-            color: "$green11",
-            my: "$4",
-            "@bp2": { my: "0" },
-          }}
-        >
-          Published on {data.mdx.frontmatter.date}
-        </Text>
+        <PostTitle>{title}</PostTitle>
+        <PublishedDate>Published on {data.mdx.frontmatter.date}</PublishedDate>
         <MDXProvider components={components}>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </MDXProvider>
@@ -140,6 +97,66 @@ const BlogPost = ({ data }) => {
     </Flex>
   );
 };
+
+const PostImage = styled(GatsbyImage, {
+  "@initial": {
+    maxWidth: "60px",
+    height: "100vh",
+  },
+  "@bp2": { minWidth: "360px" },
+});
+const gradient = keyframes({
+  "0%": { backgroundPosition: "0% 0%" },
+  "50%": { backgroundPosition: "50% 50%" },
+  "100%": { backgroundPosition: "100% 100%" },
+});
+
+const PostOneColorStripSide = styled("div", {
+  minWidth: "20px",
+  "@bp2": { minWidth: "360px" },
+  background:
+    "linear-gradient(to top, " +
+    "$colors$green6, " +
+    "$colors$green7, " +
+    "$colors$green8, " +
+    "$colors$green7," +
+    "$colors$green6, " +
+    "$colors$plum6, " +
+    "$colors$plum7, " +
+    "$colors$plum8, " +
+    "$colors$plum7, " +
+    "$colors$plum6 )",
+  backgroundSize: "400% 400%",
+  animation: `${gradient} 15s linear infinite`,
+});
+
+const PostTitle: React.FC = ({ children }) => (
+  <Heading
+    size="4"
+    as="h2"
+    css={{
+      color: "$colors$green12",
+      mt: "$3",
+      "@bp2": { mt: 0 },
+    }}
+  >
+    {children}
+  </Heading>
+);
+
+const PublishedDate: React.FC = ({ children }) => (
+  <Text
+    as={"p"}
+    size="4"
+    css={{
+      color: "$green11",
+      my: "$4",
+      "@bp2": { my: "0" },
+    }}
+  >
+    {children}
+  </Text>
+);
 
 export const query = graphql`
   query ($id: String) {
