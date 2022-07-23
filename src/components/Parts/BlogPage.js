@@ -26,7 +26,7 @@ export const BlogPage = ({ menuItems, recipes, currentCategory, changeCategoryCl
                     React.createElement(ArticleContent, { title: title, slug: slug, image: image })))))))));
 };
 export const MainWithBackground = styled("main", {
-    backgroundColor: "$green2",
+    backgroundColor: "$indigo2",
     width: "100%",
     height: "100%",
     margin: 0,

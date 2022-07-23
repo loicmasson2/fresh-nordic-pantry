@@ -13,6 +13,10 @@ import {
   greenDark,
   red,
   redDark,
+  indigo,
+  indigoDark,
+  violet,
+  violetDark,
 } from "@radix-ui/colors";
 import type * as Stitches from "@stitches/react";
 import { createStitches } from "@stitches/react";
@@ -33,6 +37,8 @@ export const { config, createTheme, getCssText, styled, globalCss } =
         ...sageDark,
         ...plum,
         ...plumDark,
+        ...indigo,
+        ...violet,
 
         // Semantic colors
         hiContrast: "$sage12",

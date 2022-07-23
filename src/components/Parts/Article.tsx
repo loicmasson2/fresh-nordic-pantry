@@ -63,7 +63,7 @@ export const ArticleContent = ({ title, slug, image }: ArticleContentProps) => {
             size="1"
             as="h1"
             css={{
-              color: "$green12",
+              color: "$indigo12",
             }}
           >
             {title}
@@ -78,7 +78,7 @@ export const BottomSection = styled("div", {
   display: "flex",
   flex: "20%",
   textAlign: "center",
-  backgroundColor: "$green7",
+  backgroundColor: "$indigo7",
   justifyContent: "center",
   alignItems: "center",
 });

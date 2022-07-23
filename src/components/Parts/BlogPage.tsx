@@ -77,7 +77,7 @@ export const BlogPage = ({menuItems, recipes, currentCategory, changeCategoryCli
 
 
 export const MainWithBackground = styled("main", {
-  backgroundColor: "$green2",
+  backgroundColor: "$indigo2",
   width: "100%",
   height: "100%",
   margin: 0,

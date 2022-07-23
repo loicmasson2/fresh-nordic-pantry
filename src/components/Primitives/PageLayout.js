@@ -20,7 +20,7 @@ export const PageLayout = ({ children }) => {
     globalStyles();
     const { title = "" } = useSiteMetadata();
     return (React.createElement(Section, { size: { "@initial": "2", "@bp1": "3" }, css: {
-            backgroundColor: "$green2",
+            backgroundColor: "$indigo2",
             width: "100%",
             minHeight: "100%",
             margin: 0,
@@ -36,7 +36,7 @@ export const PageLayout = ({ children }) => {
                         justifyContent: "center",
                     } },
                     React.createElement(Heading, { size: "4", as: "h1", css: {
-                            color: "$colors$green12",
+                            color: "$colors$indigo12",
                         } }, title))),
             React.createElement("main", null, children),
             React.createElement(LanguageSelector, null))));

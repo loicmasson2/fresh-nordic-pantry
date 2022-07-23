@@ -23,13 +23,13 @@ const RecipeFacts = ({ prepTime, cookTime, servings, level, }) => {
 // TODO
 // need to translate it
 const LabelFact = ({ children }) => (React.createElement(Text, { as: "p", size: "5", css: {
-        color: "$green11",
+        color: "$indigo11",
         pb: "$2",
         pr: "$4",
         "@bp1": { pr: "0" },
     } }, children));
 const Fact = ({ children }) => (React.createElement(Text, { as: "p", size: "4", css: {
-        color: "$green11",
+        color: "$indigo11",
         fontWeight: "bold",
         "@bp1": { fontWeight: "normal" },
     } }, children));
@@ -39,8 +39,8 @@ const RecipeFactsWrapper = styled("div", {
     flexWrap: "wrap",
     margin: "$3",
     "@bp1": {
-        borderTop: "1px solid $green6",
-        borderBottom: "1px solid $green6",
+        borderTop: "1px solid $indigo6",
+        borderBottom: "1px solid $indigo6",
         borderRadius: "100px",
         flexDirection: "row",
     },
@@ -55,9 +55,9 @@ const RecipeFactsBlock = styled("div", {
     },
     padding: "$2",
     flexGrow: "2",
-    color: "$green11",
+    color: "$indigo11",
 });
 const Spacer = styled("div", {
-    borderRight: "1px solid $green6",
+    borderRight: "1px solid $indigo6",
 });
 export default RecipeFacts;

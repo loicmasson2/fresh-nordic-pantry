@@ -11,7 +11,7 @@ const components = {
     Heading,
     RecipeFacts,
     h2: (props) => (React.createElement(Heading, { size: "3", as: "h2", css: {
-            color: "$colors$green12",
+            color: "$colors$indigo12",
         }, ...props })),
 };
 const BlogPost = ({ data }) => {
@@ -47,10 +47,10 @@ const BlogPost = ({ data }) => {
             } },
             React.createElement(Link, { to: "/blog", replace: true }, "\u2190 Go back"),
             React.createElement(Heading, { size: "4", as: "h2", css: {
-                    color: "$colors$green12",
+                    color: "$colors$indigo12",
                 } }, title),
             React.createElement(Text, { as: "p", size: "4", css: {
-                    color: "$green11",
+                    color: "$indigo11",
                 } },
                 "Published on ",
                 data.mdx.frontmatter.date),

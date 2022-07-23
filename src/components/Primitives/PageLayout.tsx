@@ -30,7 +30,7 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
     <Section
       size={{ "@initial": "2", "@bp1": "3" }}
       css={{
-        backgroundColor: "$green2",
+        backgroundColor: "$indigo2",
         width: "100%",
         minHeight: "100%",
         margin: 0,
@@ -53,7 +53,7 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
               size="4"
               as="h1"
               css={{
-                color: "$colors$green12",
+                color: "$colors$indigo12",
               }}
             >
               {title}

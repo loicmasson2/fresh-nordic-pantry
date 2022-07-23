@@ -22,7 +22,7 @@ const components = {
       }}
       as="p"
       css={{
-        color: "$colors$green12",
+        color: "$colors$indigo12",
         lineHeight: "24px",
         "@bp2": {
           lineHeight: "32px",
@@ -39,7 +39,7 @@ const components = {
       }}
       as="li"
       css={{
-        color: "$colors$green12",
+        color: "$colors$indigo12",
         display: "list-item",
         lineHeight: "24px",
         "@bp2": {
@@ -54,7 +54,7 @@ const components = {
       size="3"
       as="h2"
       css={{
-        color: "$colors$green12",
+        color: "$colors$indigo12",
       }}
       {...props}
     />
@@ -116,16 +116,16 @@ const PostOneColorStripSide = styled("div", {
   "@bp2": { minWidth: "360px" },
   background:
     "linear-gradient(to top, " +
-    "$colors$green6, " +
-    "$colors$green7, " +
-    "$colors$green8, " +
-    "$colors$green7," +
-    "$colors$green6, " +
-    "$colors$plum6, " +
-    "$colors$plum7, " +
-    "$colors$plum8, " +
-    "$colors$plum7, " +
-    "$colors$plum6 )",
+    "$colors$indigo6, " +
+    "$colors$indigo7, " +
+    "$colors$indigo8, " +
+    "$colors$indigo7," +
+    "$colors$indigo6, " +
+    "$colors$violet6, " +
+    "$colors$violet7, " +
+    "$colors$violet8, " +
+    "$colors$violet7, " +
+    "$colors$violet6 )",
   backgroundSize: "400% 400%",
   animation: `${gradient} 15s linear infinite`,
 });
@@ -135,7 +135,7 @@ const PostTitle: React.FC = ({ children }) => (
     size="4"
     as="h2"
     css={{
-      color: "$colors$green12",
+      color: "$colors$indigo12",
       mt: "$3",
       "@bp2": { mt: 0 },
     }}
@@ -149,7 +149,7 @@ const PublishedDate: React.FC = ({ children }) => (
     as={"p"}
     size="4"
     css={{
-      color: "$green11",
+      color: "$indigo11",
       my: "$4",
       "@bp2": { my: "0" },
     }}

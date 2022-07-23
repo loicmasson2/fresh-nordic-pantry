@@ -1,4 +1,4 @@
-import { blue, blueDark, slate, slateDark, sage, sageDark, plum, plumDark, gray, grayDark, green, greenDark, red, redDark, } from "@radix-ui/colors";
+import { blue, blueDark, slate, slateDark, sage, sageDark, plum, plumDark, gray, grayDark, green, greenDark, red, redDark, indigo, violet, } from "@radix-ui/colors";
 import { createStitches } from "@stitches/react";
 export const { config, createTheme, getCssText, styled, globalCss } = createStitches({
     theme: {
@@ -13,6 +13,8 @@ export const { config, createTheme, getCssText, styled, globalCss } = createStit
             ...sageDark,
             ...plum,
             ...plumDark,
+            ...indigo,
+            ...violet,
             // Semantic colors
             hiContrast: "$sage12",
             loContrast: "$sage1",
