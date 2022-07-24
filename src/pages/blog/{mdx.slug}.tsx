@@ -9,8 +9,11 @@ const BlogPostEnglish = ({ data }: { data: RootObject }) => {
   const date = data.mdx.frontmatter.date;
   const body = data.mdx.body;
   const tags = data.mdx.frontmatter.tags;
+  const slug = data.mdx.frontmatter.slug;
 
-  return <RecipePage title={title} date={date} body={body} tags={tags} />;
+  return (
+    <RecipePage title={title} date={date} body={body} tags={tags} slug={slug} />
+  );
 };
 
 export const query = graphql`
@@ -19,6 +22,7 @@ export const query = graphql`
       frontmatter {
         title
         tags
+        slug
         date(formatString: "MMMM D, YYYY")
         image {
           childImageSharp {

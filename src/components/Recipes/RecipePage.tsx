@@ -1,5 +1,7 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
+import { Disqus } from "gatsby-plugin-disqus";
+import { useLocation } from "@reach/router";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { keyframes } from "@stitches/react";
 import { Link } from "gatsby";
@@ -9,7 +11,6 @@ import { styled } from "../../../stitches.config";
 import { Heading } from "../Primitives/Heading";
 import { Flex } from "../Primitives/Flex";
 import Wrapper from "../Primitives/Wrapper";
-import { MenuButton } from "../Parts/Menu";
 
 const components = {
   Text,
@@ -69,6 +70,7 @@ type RecipePageProps = {
   date: string;
   body: any;
   tags: string[];
+  slug: string;
 };
 
 const RecipePage = ({
@@ -76,7 +78,9 @@ const RecipePage = ({
   date,
   body,
   tags,
+  slug,
 }: RecipePageProps): JSX.Element => {
+  const location = useLocation();
   return (
     <Wrapper>
       <Flex>
@@ -103,6 +107,11 @@ const RecipePage = ({
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
+          <Disqus
+            identifier={slug}
+            title={title}
+            url={`$${location.pathname}`}
+          />
         </Flex>
       </Flex>
     </Wrapper>

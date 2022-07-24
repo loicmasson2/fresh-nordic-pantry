@@ -42,6 +42,7 @@ interface ArticleContentProps {
   image: ImageDataLike;
 }
 export const ArticleContent = ({ title, slug, image }: ArticleContentProps) => {
+  const graphImage = getImage(image);
   return (
     <Link to={`${slug}`} replace>
       <Flex
@@ -50,35 +51,60 @@ export const ArticleContent = ({ title, slug, image }: ArticleContentProps) => {
           height: "100%",
         }}
       >
-        <GatsbyImage
-          imgStyle={{
-            transition: ".3s ease-in-out",
-          }}
-          style={{
-            flex: "80%",
-          }}
-          image={getImage(image)!}
-          alt={title}
-        />
-        <BottomSection>
-          <Heading
-            size="1"
-            as="h1"
-            css={{
-              color: "$indigo12",
-              p: "$4",
-              "@bp1": {
-                p: 0,
-              },
-            }}
-          >
-            {title}
-          </Heading>
-        </BottomSection>
+        {graphImage && (
+          <>
+            <GatsbyImage
+              imgStyle={{
+                transition: ".3s ease-in-out",
+              }}
+              style={{
+                flex: "80%",
+              }}
+              image={graphImage}
+              alt={title}
+            />
+            <BottomSection>
+              <RecipeName>{title}</RecipeName>
+            </BottomSection>
+          </>
+        )}
+        {!graphImage && (
+          <FullSection>
+            <RecipeName>{title}</RecipeName>
+          </FullSection>
+        )}
       </Flex>
     </Link>
   );
 };
+
+const RecipeName: React.FC = ({ children }) => {
+  return (
+    <Heading
+      size="1"
+      as="h1"
+      css={{
+        color: "$indigo12",
+        p: "$4",
+        "@bp1": {
+          p: 0,
+        },
+      }}
+    >
+      {children}
+    </Heading>
+  );
+};
+
+const FullSection = styled("div", {
+  display: "flex",
+  flex: "100%",
+  textAlign: "center",
+  backgroundColor: "$indigo7",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "128px",
+});
 
 export const BottomSection = styled("div", {
   display: "flex",

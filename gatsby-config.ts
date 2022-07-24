@@ -13,6 +13,12 @@ const config: GatsbyConfig = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-sitemap",
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `nordic-pantry`,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
