@@ -22,13 +22,13 @@ export const MenuButtons = styled(Flex, {
 interface MenuButtonProps {
   isActive: boolean;
   tag: string;
-  clickCallback: (event: { target: { textContent: any } }) => void;
+  clickCallback: (event: React.MouseEvent<HTMLElement>) => void;
 }
-export const MenuButton = ({
+export const MenuButton: React.FC<MenuButtonProps> = ({
   isActive,
   tag,
   clickCallback,
-}: MenuButtonProps) => {
+}) => {
   return (
     <Button
       variant={isActive ? "secondary" : "main"}

@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { Flex } from "../Primitives/Flex";
 import { Heading } from "../Primitives/Heading";
 import * as React from "react";
+import { keyframes } from "@stitches/react";
 
 export const Article = styled("article", {
   width: "100%",
@@ -56,7 +57,8 @@ export const ArticleContent = ({ title, slug, image }: ArticleContentProps) => {
           style={{
             flex: "80%",
           }}
-          image={getImage(image)}
+          image={getImage(image)!}
+          alt={title}
         />
         <BottomSection>
           <Heading
@@ -64,6 +66,10 @@ export const ArticleContent = ({ title, slug, image }: ArticleContentProps) => {
             as="h1"
             css={{
               color: "$indigo12",
+              p: "$4",
+              "@bp1": {
+                p: 0,
+              },
             }}
           >
             {title}

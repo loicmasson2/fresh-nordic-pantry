@@ -28,21 +28,10 @@ export const { config, createTheme, getCssText, styled, globalCss } =
     theme: {
       colors: {
         ...gray,
-        ...blue,
-        ...red,
-        ...green,
-        ...slate,
-        ...slateDark,
-        ...sage,
-        ...sageDark,
-        ...plum,
-        ...plumDark,
         ...indigo,
         ...violet,
 
         // Semantic colors
-        hiContrast: "$sage12",
-        loContrast: "$sage1",
         canvas: "hsl(0 0% 93%)",
         panel: "white",
         transparentPanel: "hsl(0 0% 0% / 97%)",

@@ -71,23 +71,24 @@ export const Button = styled("button", {
       main: {
         backgroundColor: "$colors$indigo3",
         boxShadow: "inset 0 0 0 1px $colors$indigo7",
-        color: "$indigo11",
+        color: "$colors$indigo11",
         "@hover": {
           "&:hover": {
             // boxShadow: "inset 0 0 0 2px $colors$indigo4",
             cursor: "pointer",
             boxShadow: "inset 0 -3.25em 0 0 $colors$violet10",
-            color: "$colors$violet12",
+            color: "$colors$violet1",
           },
         },
         "&:active": {
+          color: "$colors$violet1",
           backgroundColor: "$color$violet3",
           boxShadow: "inset 0 0 0 1px $colors$indigo8",
         },
         "&:focus": {
           // boxShadow: "inset 0 0 0 1px $colors$indigo8, 0 0 0 1px $colors$indigo8",
           boxShadow: "inset 0 -3.25em 0 0 $colors$violet10",
-          color: "$colors$violet12",
+          color: "$colors$violet1",
           borderColor: "$colors$violet8",
         },
         '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
@@ -99,24 +100,23 @@ export const Button = styled("button", {
       secondary: {
         backgroundColor: "$colors$violet3",
         boxShadow: "inset 0 -3.25em 0 0 $colors$violet10",
-        color: "$colors$violet12",
+        color: "$colors$violet1",
         borderColor: "$colors$violet8",
         "@hover": {
           "&:hover": {
-            // boxShadow: "inset 0 0 0 2px $colors$indigo4",
+            color: "$colors$violet1",
             cursor: "pointer",
             boxShadow: "inset 0 -3.25em 0 0 $colors$violet10",
-            color: "$colors$violet12",
           },
         },
         "&:active": {
+          color: "$colors$violet1",
           backgroundColor: "$color$violet3",
           boxShadow: "inset 0 0 0 1px $colors$indigo8",
         },
         "&:focus": {
-          // boxShadow: "inset 0 0 0 1px $colors$indigo8, 0 0 0 1px $colors$indigo8",
           boxShadow: "inset 0 -3.25em 0 0 $colors$violet10",
-          color: "$colors$violet12",
+          color: "$colors$violet1",
           borderColor: "$colors$violet8",
         },
         '&[data-radix-popover-trigger][data-state="open"], &[data-radix-dropdown-menu-trigger][data-state="open"]':
@@ -126,9 +126,5 @@ export const Button = styled("button", {
           },
       },
     },
-  },
-  defaultVariants: {
-    size: "1",
-    variant: "gray",
   },
 });

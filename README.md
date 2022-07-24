@@ -1,54 +1,94 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+# Nordic Pantry Website
 
-## 🚀 Quick start
+[See it live](https://www.nordicpantry.one/blog/)
 
-1.  **Create a Gatsby site.**
+## Getting started 
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+### Pre-requisites
+- node 16
+- npm 8
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+```bash
+npm i
 
-2.  **Start developing.**
+npm run start
+// the project will be launched on localhost:8000
+```
 
-    Navigate into your new site’s directory and start it up.
+## Where to write new recipes
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### For English
+Create in `/pages/blog` a new subfolder with the recipe name.
 
-3.  **Open the code and start customizing!**
+### For Finnish
+Create in `/pages/fi/blog` a new subfolder with the recipe name.
 
-    Your site is now running at http://localhost:8000!
+## How to write new recipes
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+Create a new `*.mdx` file.  
+Here is a [markdown cheatsheet if needed](https://www.markdownguide.org/cheat-sheet/).
 
-4.  **Learn more**
+### Properties
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+**title**: title that will be displayed  
+**slug**: will be used for the url (use format _word-word-word_)  
+**date**: published date ( format _YYYY-MM-DD_ )  
+**image**: path of the image ( can omit it )  
+**tags**: array of tags that will be used.  
+If you add a
+new tag it will be added automatically to the menu of the main page. ( _["myfirsttag", "mysecondtag"]_ )  
+**lang**: which language ( either _en_ or _fi_ )
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Content
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+The first text should be a general description.  
+Then **##Ingredients**  for the list of ingredients.  
+Then **##Preparation** for the list of steps.
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## How to publish a new version
+It will be automatically deployed when committing to main.  
+The pipelines will run on Gatsby cloud. It takes few minutes for the pipelines to run.
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## Architecture project
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+**Pages** will do the data fetching from GraphQL.
 
-## 🚀 Quick start (Gatsby Cloud)
+**Main blog page** is in `/src/components/Parts/BlogPage`.
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+**Recipe page** is in `src/components/Parts/Recipes`.
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+**Wrapper** is the high level component to translate all the children.
+
+**PageLayout** is the high level component for the blog page.
+
+## Translations for shared text
+
+I am using `react-intl`.  
+All components needs to have `Wrapper` somewhere as a parent.
+
+To add a new string edit in `/intl` folder both languages and add a new key.
+
+The key needs to be the same for all languages.
+
+For example for "go back"
+
+In `en.json`
+
+```
+  "back": "Go Back"
+```
+
+In `fi.json`
+
+```
+  "back": "Mene takaisi"
+```
+
+Then in the code base 
+
+```
+<FormattedMessage id={"back"} defaultMessage={"Go back"} />
+```
+
+## Owner
+Loïc Masson & VT

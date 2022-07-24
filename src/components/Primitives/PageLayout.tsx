@@ -61,7 +61,6 @@ export const PageLayout = ({ children }: Props): JSX.Element => {
           </Flex>
         </header>
         <main>{children}</main>
-        <LanguageSelector />
       </Container>
     </Section>
   );
@@ -74,21 +73,17 @@ const LanguageSelector = () => {
   const context = React.useContext(Context);
 
   return (
-    <LanguageSelectorWrapper
-      css={{
-        fontSize: "$7",
-        gap: "$2",
-        justifyContent: "flex-end",
-      }}
-    >
+    <LanguageSelectorWrapper>
       <Flex onClick={() => context.selectLanguage("fi")}>🇫🇮</Flex>
       <Flex onClick={() => context.selectLanguage("en")}>🇬🇧</Flex>
     </LanguageSelectorWrapper>
   );
 };
 
-export const LanguageSelectorWrapper = styled(Flex, {
+export const LanguageSelectorWrapper = styled("div", {
+  display: "flex",
   fontSize: "$8",
-  gap: "$2",
+  gap: "$3",
+  p: "$3",
   justifyContent: "flex-end",
 });

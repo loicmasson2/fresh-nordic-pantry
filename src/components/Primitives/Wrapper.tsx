@@ -7,6 +7,7 @@ import Finnish from "../../intl/fi.json";
 import { styled } from "../../../stitches.config";
 
 import { useLocation } from "@reach/router";
+import useSiteMetadata from "../../hooks/use-sitemetadata";
 
 export const Context = React.createContext({
   locale: "en",
@@ -38,6 +39,7 @@ const Wrapper = (props: {
   }
   const [locale, setLocale] = useState(currentLang);
   const [messages, setMessages] = useState(currentLocale);
+  const { title = "" } = useSiteMetadata();
 
   const selectLanguage = (language: string) => {
     const newLocale = language;
@@ -59,6 +61,7 @@ const Wrapper = (props: {
         }}
       >
         <meta charSet="utf-8" />
+        <title>{title}</title>
       </Helmet>
       <IntlProvider messages={messages} locale={locale}>
         <FullSize>{props.children}</FullSize>
